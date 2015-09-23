@@ -1,0 +1,31 @@
+{
+  "name": "testx-google-spreadsheet-runner",
+  "version": "1.0.0",
+  "description": "Google Spreadsheet runner for Testx",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeroenpeeters/testx-google-spreadsheet-runner.git"
+  },
+  "keywords": [
+    "testx",
+    "art"
+  ],
+  "author": "Jeroen Peeters <jeroen@peetersweb.nl> (http://jeroenpeeters.nl)",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jeroenpeeters/testx-google-spreadsheet-runner/issues"
+  },
+  "homepage": "https://github.com/jeroenpeeters/testx-google-spreadsheet-runner#readme",
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "google-spreadsheet": "^1.0.1",
+    "google-spreadsheets": "^0.4.2",
+    "q": "^1.4.1",
+    "underscore": "^1.8.3",
+    "testx": "^1.0.0"
+  }
+}
