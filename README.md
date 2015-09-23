@@ -1,6 +1,10 @@
 # testx-google-spreadsheet-runner
 Google Spreadsheet Runner for [TestX](https://github.com/greyarch/testx)
 
+## Requirements
+
+ - [TestX](https://github.com/greyarch/testx) 1.2.0 or later
+
 ## Installation
 
     npm i testx-google-spreadsheet-runner --save
