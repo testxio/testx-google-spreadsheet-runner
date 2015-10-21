@@ -1,6 +1,6 @@
 {
   "name": "testx-google-spreadsheet-runner",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Google Spreadsheet runner for Testx",
   "main": "index.coffee",
   "scripts": {
