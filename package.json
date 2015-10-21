@@ -1,6 +1,6 @@
 {
   "name": "testx-google-spreadsheet-runner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Google Spreadsheet runner for Testx",
   "main": "index.coffee",
   "scripts": {
@@ -25,7 +25,9 @@
     "google-spreadsheet": "^1.0.1",
     "google-spreadsheets": "^0.4.2",
     "q": "^1.4.1",
-    "underscore": "^1.8.3",
+    "underscore": "^1.8.3"
+  },
+  "peerDependencies": {
     "testx": "^1.0.0"
   }
 }
