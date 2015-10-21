@@ -5,17 +5,21 @@ testx               = require 'testx'
 
 exports.runGoogleSpreadsheet = runner = (spreadSheetKey, sheetName, context) ->
   flow = protractor.promise.controlFlow()
-  flow.execute(-> getScript(spreadSheetKey, sheetName)).then (script) =>
-    console.log 'script', JSON.stringify(script, undefined, 2)
-    console.log JSON.stringify(script, undefined, 2) if browser.params.testx.logScript
-    testx.runScript script, context
+  flow.execute(-> getWorkSheets spreadSheetKey, sheetName).then (sheets) =>
+    for sheet in sheets
+      flow.execute(getScript(sheet)).then (script) =>
+        console.log JSON.stringify(script, undefined, 2) if browser.params.testx.logScript
+        testx.runScript script, context
 
-getScript = (spreadSheetKey, sheetName) ->
+getWorkSheets = (spreadSheetKey, sheetName) ->
   deferred = q.defer()
   GoogleSpreadsheets {key: spreadSheetKey}, (err, spreadsheet) ->
-    for worksheet in spreadsheet.worksheets when not sheetName or worksheet.title == sheetName
-      worksheet.cells null, (err, data) ->
-        deferred.resolve steps: getSteps data.cells
+    deferred.resolve (worksheet for worksheet in spreadsheet.worksheets when not sheetName or worksheet.title == sheetName)
+  deferred.promise
+
+getScript = (worksheet) -> ->
+  deferred = q.defer()
+  worksheet.cells null, (err, data) -> deferred.resolve steps: getSteps data.cells
   deferred.promise
 
 getSteps = (grid) ->
